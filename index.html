@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f4f7fb">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GPT Reset">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon.svg">
+<title>GPT Reset 观察站</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--text:#172033;--muted:#6b7a90;--line:#d9e2ec;--blue:#3aa7d8;--green:#2e7d50;--yellow:#7a5b00;--shadow:0 12px 30px rgba(26,48,73,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#f7fbfe,#f4f7fb);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;padding-bottom:env(safe-area-inset-bottom)}
+.wrap{max-width:1080px;margin:auto;padding:22px 16px 90px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.brand{display:flex;align-items:center;gap:10px}.logo{width:42px;height:42px;border-radius:13px;background:#9bdcf7;display:grid;place-items:center;font-weight:900;font-size:22px;color:#163042}.brand h1{margin:0;font-size:21px}.sub{font-size:12px;color:var(--muted);margin-top:2px}.now{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:7px 10px}.banner,.card{background:var(--card);border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow)}.banner{padding:12px 14px;color:#496173;font-size:13px;line-height:1.55;margin-bottom:16px}.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.card{padding:16px}.hero{background:linear-gradient(135deg,rgba(58,167,216,.10),transparent 42%),#fff}.row{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}.label{font-size:12px;color:var(--muted);margin-bottom:5px}.title{font-weight:800;font-size:20px}.status{font-size:12px;color:#9a5d00}.count{font-size:42px;font-weight:900;letter-spacing:-1.5px;margin-top:2px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.metric{border:1px solid var(--line);border-radius:13px;padding:12px;background:#f8fafc}.metric b{display:block;font-size:17px;margin-top:5px}.forecast{margin-top:12px;padding:12px;border-radius:12px;background:#f3f8fb;color:#496173;font-size:13px;line-height:1.6}.section-title{font-size:15px;font-weight:800;margin:0 0 12px}.legend{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}.tag{font-size:10px;padding:4px 7px;border-radius:999px;background:#edf2f7;color:#526579}.tag.direct,.tag.landed{background:#e9f8ef;color:var(--green)}.tag.banked{background:#e7f3fb;color:#245f8a}.tag.announced{background:#fff4c2;color:var(--yellow)}.list{display:flex;flex-direction:column;gap:9px}.item{display:flex;justify-content:space-between;gap:10px;border:1px solid var(--line);border-radius:12px;padding:11px;background:#f8fafc}.item-main{min-width:0;font-size:13px}.item-small{font-size:11px;color:var(--muted);line-height:1.5;margin-top:4px}.tags{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end;align-content:flex-start}.source{display:block;text-decoration:none;color:#284255;border:1px solid var(--line);border-radius:12px;padding:11px;background:#f8fafc;margin-top:9px}.source small{display:block;color:var(--muted);margin-top:4px}.note{font-size:13px;color:#45586c;line-height:1.6}.bottom{display:none}.footer{text-align:center;font-size:11px;color:#7d8a99;margin-top:18px}
+@media(max-width:800px){.wrap{padding:12px 12px 88px}.top{position:sticky;top:0;z-index:10;background:rgba(244,247,251,.94);backdrop-filter:blur(12px);margin:0 -12px 12px;padding:9px 12px;border-bottom:1px solid var(--line)}.brand h1{font-size:17px}.sub{font-size:10px}.now{display:none}.grid{grid-template-columns:1fr}.count{font-size:34px}.metrics{grid-template-columns:1fr}.card{border-radius:15px;padding:14px}.item{align-items:flex-start}.bottom{display:grid;grid-template-columns:repeat(3,1fr);position:fixed;left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom));z-index:20;background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:17px;box-shadow:0 10px 28px rgba(26,48,73,.16);overflow:hidden}.bottom a{text-align:center;padding:11px 5px;text-decoration:none;color:#607287;font-size:11px;font-weight:700}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><div class="brand"><div class="logo">G</div><div><h1>GPT 官方额度重置观察站</h1><div class="sub">归并 Reset 历史 · 下一次概率窗口</div></div></div><div class="now" id="now">--</div></header>
+  <div class="banner"><b>无需个人额度数据。</b> 本页只使用公开信息统计 OpenAI 全局 Reset 事件。当前连续公开记录主要针对 Codex / ChatGPT Work。</div>
+  <div class="grid">
+    <main>
+      <section class="card hero" id="forecast">
+        <div class="row"><div><div class="label">预测对象</div><div class="title">下一次官方全局 Reset</div></div><div class="status">● 低置信度 · 事件驱动</div></div>
+        <div class="row" style="margin-top:24px"><div><div class="label">距离统计中心时间</div><div class="count" id="countdown">--:--:--</div></div><div><div class="label">中心预测时间</div><div class="title" id="predicted">--</div></div></div>
+        <div class="metrics"><div class="metric"><span class="label">最近 10 次间隔中位数</span><b id="median">--</b></div><div class="metric"><span class="label">典型预测窗口</span><b id="range">--</b></div><div class="metric"><span class="label">最近一次 Reset</span><b id="last">--</b></div></div>
+        <div class="forecast" id="forecastBox"></div>
+      </section>
+      <section class="card" id="history" style="margin-top:16px"><h2 class="section-title">归并后的 Reset 历史</h2><div class="legend"><span class="tag landed">实际到账</span><span class="tag announced">只有公告时间</span><span class="tag banked">Banked 发放</span></div><div class="list" id="historyList"></div></section>
+    </main>
+    <aside>
+      <section class="card" id="sources"><h2 class="section-title">数据来源</h2><a class="source" href="https://codex-resets.com/" target="_blank" rel="noreferrer">Codex Resets<small>持续汇总公开 Reset 公告。</small></a><a class="source" href="https://help.openai.com/en/articles/20001354-gpt-56-in-chatgpt" target="_blank" rel="noreferrer">OpenAI Help Center<small>官方额度与重置说明。</small></a></section>
+      <section class="card" style="margin-top:16px"><h2 class="section-title">预测方法</h2><div class="note">同一笔 Reset 的通知、传播、到账只算一次；有实际到账时间时优先使用到账时间。预测优先级：<b>官方明确预告 ＞ 官方暗示 ＞ 历史周期统计</b>。没有前置信号时，使用最近 10 次 Direct Reset 事件间隔做中位数预测。</div></section>
+      <section class="card" style="margin-top:16px"><h2 class="section-title">数据快照</h2><div class="note">更新至 2026-08-24。8 月 21 日 Banked Reset 通知与 8 月 22 日实际到账归并为同一次发放。</div></section>
+    </aside>
+  </div>
+  <nav class="bottom"><a href="#forecast">预测</a><a href="#history">历史</a><a href="#sources">来源</a></nav>
+  <div class="footer">GPT Reset Observer · Web PWA V1.1 · 非 OpenAI 官方产品</div>
+</div>
+<script>
+const events=[
+{actual:'2026-08-24T00:46:00Z',announced:'2026-08-23T21:00:00Z',type:'direct',status:'landed',text:'8 月 23 日先有 Full Reset 预告；8 月 24 日 00:46 UTC 公开确认已传播到账户。统计只记 1 次。'},
+{actual:'2026-08-22T00:50:36Z',announced:'2026-08-21T11:43:19Z',type:'banked',status:'landed',text:'8 月 21 日宣布发放；8 月 22 日实际到账。整个生命周期只记 1 次 Banked 发放。'},
+{actual:null,announced:'2026-08-13T01:01:00Z',type:'direct',status:'announced',uncertainty:60,text:'15M 活跃用户里程碑后宣布全局 Reset，预计约 1 小时内落地。'},
+{actual:'2026-08-11T00:28:16Z',type:'direct',status:'landed',text:'所有付费 ChatGPT Work / Codex 用户 usage limits 已完成 Reset。'},
+{actual:'2026-08-08T20:29:00Z',type:'direct',status:'landed',text:'所有付费 ChatGPT Work / Codex 用户额度 Reset。'},
+{actual:'2026-08-01T03:32:00Z',type:'direct',status:'landed',text:'周末全局额度 Reset。'},
+{actual:'2026-07-29T04:09:00Z',type:'direct',status:'landed',text:'全局 Reset，并更新 GPT-5.6 Sol usage limits。'},
+{actual:'2026-07-28T03:09:00Z',type:'direct',status:'landed',text:'所有付费 Codex / ChatGPT Work 用户额度 Reset。'},
+{actual:'2026-07-25T19:17:00Z',type:'direct',status:'landed',text:'大范围 outage 后进行全局 Reset。'},
+{actual:'2026-07-21T16:47:00Z',type:'direct',status:'landed',text:'10M 活跃用户里程碑 Reset。'},
+{actual:'2026-07-18T03:28:00Z',type:'direct',status:'landed',text:'周末全局 Reset。'},
+{actual:'2026-07-16T04:14:00Z',type:'direct',status:'landed',text:'9M 活跃用户里程碑 Reset。'},
+{actual:'2026-07-14T19:34:00Z',type:'direct',status:'landed',text:'8M 活跃用户里程碑 Reset。'},
+{actual:'2026-07-13T18:29:00Z',type:'banked',status:'landed',text:'7M 活跃用户里程碑，发放 1 次 Banked Reset。'},
+{actual:'2026-07-12T21:28:00Z',type:'banked',status:'landed',text:'向约 500k 用户发放 1 次 Banked Reset。'},
+{actual:'2026-07-11T05:54:00Z',type:'direct',status:'landed',text:'全局 usage limit Reset。'},
+{actual:'2026-07-10T17:59:00Z',type:'direct',status:'landed',text:'全局 Reset。'},
+{actual:'2026-07-09T21:24:00Z',type:'direct',status:'landed',text:'ChatGPT Work / Codex 全量 Reset。'}];
+const t=e=>new Date(e.actual||e.announced);function q(a,p){a=[...a].sort((x,y)=>x-y);const x=(a.length-1)*p,b=Math.floor(x),r=x-b;return a[b+1]!==undefined?a[b]+r*(a[b+1]-a[b]):a[b]}function fd(d){return new Date(d).toLocaleString('zh-CN',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false})}function dur(ms){const h=ms/36e5;return h<48?h.toFixed(1)+' 小时':(h/24).toFixed(1)+' 天'}
+const direct=events.filter(e=>e.type==='direct').sort((a,b)=>t(a)-t(b)),times=direct.map(t),gaps=[];for(let i=1;i<times.length;i++)gaps.push(times[i]-times[i-1]);const r=gaps.slice(-10),med=q(r,.5),q1=q(r,.25),q3=q(r,.75),latest=times.at(-1),center=new Date(+latest+med),ws=new Date(+latest+q1),we=new Date(+latest+q3);
+median.textContent=dur(med);range.textContent=dur(q1)+' ～ '+dur(q3);last.textContent=fd(latest);predicted.textContent=fd(center);forecastBox.innerHTML='<b>当前没有新的官方 Reset 预告，因此启用历史统计预测。</b><br>统计中心：<b>'+fd(center)+'</b><br>典型窗口：<b>'+fd(ws)+' ～ '+fd(we)+'</b><br>一旦出现官方明确预告，应优先覆盖历史预测。';
+historyList.innerHTML=events.map(e=>'<div class="item"><div class="item-main"><div>'+fd(t(e))+'</div><div class="item-small">'+e.text+(e.uncertainty?' · ±'+e.uncertainty+' 分钟':'')+'</div></div><div class="tags"><span class="tag '+(e.type==='banked'?'banked':'direct')+'">'+(e.type==='banked'?'Banked 发放':'Direct Reset')+'</span><span class="tag '+(e.status==='landed'?'landed':'announced')+'">'+(e.status==='landed'?'实际到账':'公告时间')+'</span></div></div>').join('');
+function tick(){const n=new Date;now.textContent=n.toLocaleString('zh-CN',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});const d=center-n;if(d<=0){countdown.textContent='已进入预测期';return}const s=Math.floor(d/1000),dd=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60),ss=s%60;countdown.textContent=(dd?dd+'天 ':'')+String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(ss).padStart(2,'0')}tick();setInterval(tick,1000);
+if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script>
+</body>
+</html>
