@@ -1,0 +1,19 @@
+{
+  "name": "GPT 官方额度重置观察站",
+  "short_name": "GPT Reset",
+  "description": "公开 Reset 历史、下一次重置预测与来源归并。",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#f4f7fb",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
